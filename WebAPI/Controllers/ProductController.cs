@@ -4,7 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Interface;
-using WebAPI.Data.Repository;
+using WebAPI.Services;
+using WebAPI.Data.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,20 +13,22 @@ namespace WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductController : Controller
+    public class ProductsController : Controller
     {
-       private readonly IProductRepository productRepository;
-        public ProductController()
+        private readonly IProductService _productService;
+        public ProductsController(IProductService productService)
         {
-            productRepository = new ProductRepository();
+            _productService = productService;
         }
-        // GET: api/<controller>
+        // GET: api/<controller>'
+      
         [HttpGet]
         public async Task<ActionResult> GetProducts()
         {
+              
             try
             {
-                var products =  productRepository.GetProducts();
+                var products = _productService.GetProducts();
                 return Ok(products);
             }
             catch (Exception e)
@@ -40,7 +43,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                var product = productRepository.GetProduct(id);
+                var product = _productService.GetProduct(id);
                 return Ok(product);
             }
             catch(Exception e)
@@ -51,14 +54,21 @@ namespace WebAPI.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody] Product product)
         {
+
         }
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] Product product)
         {
+            //try
+            //{
+            //    var prod = productService.GetProduct(id);
+            //    productService.UpdateProduct(id, product);             
+           
+
         }
 
         // DELETE api/<controller>/5

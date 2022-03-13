@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MongoDB.Driver;
+using WebAPI.Models;
+using WebAPI.Services;
 
 namespace WebAPI
 {
@@ -25,7 +28,11 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://JohnBoscoM:59MLcmta@sanbox.pregu.mongodb.net/chillhop_store?retryWrites=true&w=majority");
+            services.AddSingleton<IProductService, ProductService>();
             services.AddControllers();
+            services.AddSingleton<IMongoClient>(new MongoClient(settings));
+            services.AddSingleton<IMongoDBSettings, MongoDBSettings>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
