@@ -23,9 +23,8 @@ namespace WebAPI.Controllers
         // GET: api/<controller>'
       
         [HttpGet]
-        public async Task<ActionResult> GetProducts()
-        {
-              
+        public async Task<ActionResult> GetProducts(int id)
+        {   
             try
             {
                 var products = _productService.GetProducts();

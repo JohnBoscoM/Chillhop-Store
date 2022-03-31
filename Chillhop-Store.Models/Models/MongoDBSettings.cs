@@ -1,4 +1,5 @@
-﻿namespace WebAPI.Models
+﻿
+namespace ChillhopStore.Models
 {
     public class MongoDBSettings:IMongoDBSettings
     {

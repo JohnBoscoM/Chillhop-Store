@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
+using WebAPI.ConfigObjects;
+using WebAPI.Extensions;
 using WebAPI.Models;
 using WebAPI.Services;
 
@@ -21,14 +23,18 @@ namespace WebAPI
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Auth0Configuration = Configuration.GetSection("Auth0").Get<Auth0Config>();
         }
 
+        public Auth0Config Auth0Configuration { get; }
         public IConfiguration Configuration { get; }
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             var settings = MongoClientSettings.FromConnectionString("mongodb+srv://JohnBoscoM:59MLcmta@sanbox.pregu.mongodb.net/chillhop_store?retryWrites=true&w=majority");
+            services.AddAuthenticationWithAuth0(Auth0Configuration);
             services.AddSingleton<IProductService, ProductService>();
             services.AddControllers();
             services.AddSingleton<IMongoClient>(new MongoClient(settings));
@@ -42,6 +48,7 @@ namespace WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseAuthentication();
 
             app.UseHttpsRedirection();
 

@@ -1,4 +1,4 @@
-﻿namespace WebAPI.Models
+﻿namespace ChillhopStore.Models
 {
     public interface IMongoDBSettings
     {

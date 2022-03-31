@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace WebAPI.Data.Models
+namespace ChillhopStore.Models
 {
     [BsonIgnoreExtraElements]
     public class Product
