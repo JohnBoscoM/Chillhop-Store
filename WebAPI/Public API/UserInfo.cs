@@ -9,5 +9,6 @@ namespace ChillhopStore.API.Public_API
         public string NameClaimType { get; set; }
         public string RoleClaimType { get; set; }
         public IEnumerable<ClaimValue> Claims { get; set; }
+        public string Token { get; set; }
     }
 }

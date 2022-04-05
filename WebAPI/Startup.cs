@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ChillhopStore.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,7 +14,6 @@ using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using WebAPI.ConfigObjects;
 using WebAPI.Extensions;
-using WebAPI.Models;
 using WebAPI.Services;
 
 namespace WebAPI
@@ -34,7 +34,7 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             var settings = MongoClientSettings.FromConnectionString("mongodb+srv://JohnBoscoM:59MLcmta@sanbox.pregu.mongodb.net/chillhop_store?retryWrites=true&w=majority");
-            services.AddAuthenticationWithAuth0(Auth0Configuration);
+           // services.AddAuthenticationWithAuth0(Auth0Configuration);
             services.AddSingleton<IProductService, ProductService>();
             services.AddControllers();
             services.AddSingleton<IMongoClient>(new MongoClient(settings));
@@ -48,7 +48,7 @@ namespace WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseAuthentication();
+           // app.UseAuthentication();
 
             app.UseHttpsRedirection();
 

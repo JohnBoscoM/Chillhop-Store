@@ -25,8 +25,8 @@ namespace ChillhopStore.API.Identity
             var user = await _userManager.FindByNameAsync(userName);
             var roles = await _userManager.GetRolesAsync(user);
             var claims = new List<Claim> { new Claim(ClaimTypes.Name, userName) };
-            
-            foreach(var role in roles)
+
+            foreach (var role in roles)
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }

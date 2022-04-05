@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using WebAPI.Data.Models;
-using WebAPI.Models;
 using MongoDB.Driver;
+using ChillhopStore.Models;
 
 namespace WebAPI.Services
 {
@@ -13,10 +12,15 @@ namespace WebAPI.Services
             var database = mongoClient.GetDatabase("chillhop_store");
             _products = database.GetCollection<Product>("Products");
         }
+        public ProductService() { }
         public Product CreateProduct(Product product)
         {
-          _products.InsertOne(product);  
-            return product;
+          if(_products.Find(prod =>prod.ProductId == product.ProductId).FirstOrDefault() == null)
+            {
+                _products.InsertOne(product);
+                return product;
+            }
+            return null;
         }
 
         public void DeleteProduct(int Id)
@@ -29,7 +33,7 @@ namespace WebAPI.Services
             return _products.Find(prod=> prod.ProductId == Id).FirstOrDefault();
         }
 
-        public IList<Product> GetProducts()
+        public List<Product> GetProducts()
         {
             return _products.Find(prod => true).ToList();
         }

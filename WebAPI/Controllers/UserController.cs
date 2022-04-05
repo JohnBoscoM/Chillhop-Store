@@ -1,7 +1,7 @@
-﻿using BlazorShared.Authorization;
+﻿using ChillhopStore.API;
+using ChillhopStore.API.Public_API;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;

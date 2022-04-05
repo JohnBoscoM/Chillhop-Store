@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebAPI.Interface;
 using WebAPI.Services;
 using WebAPI.Data.Models;
+using ChillhopStore.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -55,19 +56,22 @@ namespace WebAPI.Controllers
         [HttpPost]
         public void Post([FromBody] Product product)
         {
-
+            try
+            {
+                _productService.CreateProduct(product);
+            }
+            catch(Exception e)
+            {
+                StatusCode(500, new { ErrorMessage = e.Message });
+            }           
         }
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Product product)
         {
-            //try
-            //{
-            //    var prod = productService.GetProduct(id);
-            //    productService.UpdateProduct(id, product);             
-           
-
+            var prodList = _productService.GetProducts();
+            _productService.UpdateProduct(id, product);
         }
 
         // DELETE api/<controller>/5

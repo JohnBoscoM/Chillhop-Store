@@ -17,7 +17,7 @@ namespace ChillhopStore.API.Public_API
             _tokenClaimsService = tokenClaimsService;
         }
     
-        public override async Task<ActionResult<AuthenticationResponse>> HandleAsync(AuthenticationRequest authenticationRequest, CancellationToken cancellationToken)
+        public async Task<ActionResult<AuthenticationResponse>> HandleAsync(AuthenticationRequest authenticationRequest, CancellationToken cancellationToken)
         {
             var response = new AuthenticationResponse(authenticationRequest.CorrelationId());
 

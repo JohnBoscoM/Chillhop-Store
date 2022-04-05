@@ -9,13 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web-Shop-Angular", "Web-Sho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Angular-WebShop", "Angular-WebShop\Angular-WebShop.csproj", "{F0B039E2-BD64-491D-8075-34796655A7B6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillhopStore.Test", "ChillhopStore.Test\ChillhopStore.Test.csproj", "{CD0DF913-0242-4DE8-BA17-D5316D3CB568}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillhopStore.Models", "Chillhop-Store.Models\ChillhopStore.Models.csproj", "{496498C8-8B95-412A-8A2B-958CFD245693}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChillhopStore.Models", "Chillhop-Store.Models\ChillhopStore.Models.csproj", "{496498C8-8B95-412A-8A2B-958CFD245693}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillhopStore.Repository", "ChillhopStore.Repository\ChillhopStore.Repository.csproj", "{64702B3B-EC98-4581-B4FB-1AD8B4D26B09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChillhopStore.Repository", "ChillhopStore.Repository\ChillhopStore.Repository.csproj", "{64702B3B-EC98-4581-B4FB-1AD8B4D26B09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChillhopStore.Logging", "ChillhopStore.Logging\ChillhopStore.Logging.csproj", "{6515C06C-E0B0-41D0-90C5-766DDB6DD1F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChillhopStore.Logging", "ChillhopStore.Logging\ChillhopStore.Logging.csproj", "{6515C06C-E0B0-41D0-90C5-766DDB6DD1F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChillhopStore.Tests", "ChillhopStore.Tests\ChillhopStore.Tests.csproj", "{7159CE48-B8B1-4A06-8302-D97050042D60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,6 @@ Global
 		{F0B039E2-BD64-491D-8075-34796655A7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0B039E2-BD64-491D-8075-34796655A7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0B039E2-BD64-491D-8075-34796655A7B6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD0DF913-0242-4DE8-BA17-D5316D3CB568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD0DF913-0242-4DE8-BA17-D5316D3CB568}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD0DF913-0242-4DE8-BA17-D5316D3CB568}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD0DF913-0242-4DE8-BA17-D5316D3CB568}.Release|Any CPU.Build.0 = Release|Any CPU
 		{496498C8-8B95-412A-8A2B-958CFD245693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{496498C8-8B95-412A-8A2B-958CFD245693}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{496498C8-8B95-412A-8A2B-958CFD245693}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{6515C06C-E0B0-41D0-90C5-766DDB6DD1F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6515C06C-E0B0-41D0-90C5-766DDB6DD1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6515C06C-E0B0-41D0-90C5-766DDB6DD1F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7159CE48-B8B1-4A06-8302-D97050042D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7159CE48-B8B1-4A06-8302-D97050042D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7159CE48-B8B1-4A06-8302-D97050042D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7159CE48-B8B1-4A06-8302-D97050042D60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

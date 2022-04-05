@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.ECS" Version="3.7.5.13" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
+    <PackageReference Include="coverlet.collector" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Chillhop-Store.Models\ChillhopStore.Models.csproj" />
+    <ProjectReference Include="..\ChillhopStore.Logging\ChillhopStore.Logging.csproj" />
+    <ProjectReference Include="..\ChillhopStore.Repository\ChillhopStore.Repository.csproj" />
+    <ProjectReference Include="..\WebAPI\ChillhopStore.API.csproj" />
+  </ItemGroup>
+
+</Project>
