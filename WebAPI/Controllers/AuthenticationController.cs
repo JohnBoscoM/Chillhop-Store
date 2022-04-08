@@ -14,9 +14,9 @@ namespace ChillhopStore.API.Controllers
     {
         private readonly IUserRepository _userRepository; 
 
-        public AuthenticationController(IUserRepository userService)
+        public AuthenticationController(IUserRepository userRepository)
         {
-            _userRepository = userService;
+            _userRepository = userRepository;
         }
         // GET: api/<LoginController>
         [HttpGet]
@@ -34,9 +34,15 @@ namespace ChillhopStore.API.Controllers
 
         // POST api/<LoginController>
         [HttpPost]
-        public void Post([FromBody] AuthenticationRequest request)
+        public ActionResult Post([FromBody] AuthenticationRequest request)
         {
-            _userRepository.UserAuthentication(request);
+            if (_userRepository.UserAuthentication(request))
+            {
+               return Ok("You have Succefully Loggen In!");
+            }
+
+              return  NotFound(StatusCode(401, "You Shall Not Pass!"));
+            
         }
 
         // PUT api/<LoginController>/5
