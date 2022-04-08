@@ -16,6 +16,7 @@ namespace WebAPI.Extensions
     {
         public static void AddAuthenticationWithAuth0(this IServiceCollection services, Auth0Config auth0Config)
         {
+            var accesstoken = "";
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -35,6 +36,7 @@ namespace WebAPI.Extensions
                             if (context.Principal?.Identity is ClaimsIdentity identity)
                             {
                                 identity.AddClaim(new Claim("access_token", token.RawData));
+                                accesstoken = token.RawData;
                             }
 
                             return Task.CompletedTask;

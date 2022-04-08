@@ -13,7 +13,7 @@ namespace ChillhopStore.Products.Tests
         {
             //Arrange
             var prodList = new List<Product>();
-            var productService = new ProductService();
+            var productService = new ProductRepository();
 
             //Act 
             prodList = productService.GetProducts();

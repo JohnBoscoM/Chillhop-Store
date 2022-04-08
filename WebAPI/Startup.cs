@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ChillhopStore.API.Services;
 using ChillhopStore.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,9 +34,11 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             var settings = MongoClientSettings.FromConnectionString("mongodb+srv://JohnBoscoM:59MLcmta@sanbox.pregu.mongodb.net/chillhop_store?retryWrites=true&w=majority");
-           // services.AddAuthenticationWithAuth0(Auth0Configuration);
-            services.AddSingleton<IProductService, ProductService>();
+            services.AddAuthenticationWithAuth0(Auth0Configuration);
+            services.AddSingleton<IProductRepository, ProductRepository>();
+            services.AddSingleton<IUserRepository, UserRepository>();
             services.AddControllers();
             services.AddSingleton<IMongoClient>(new MongoClient(settings));
             services.AddSingleton<IMongoDBSettings, MongoDBSettings>();
@@ -48,7 +51,7 @@ namespace WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-           // app.UseAuthentication();
+            app.UseAuthentication();
 
             app.UseHttpsRedirection();
 

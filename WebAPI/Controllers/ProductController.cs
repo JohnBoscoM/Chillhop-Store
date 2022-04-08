@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI.Interface;
 using WebAPI.Services;
 using WebAPI.Data.Models;
 using ChillhopStore.Models;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,8 +16,8 @@ namespace WebAPI.Controllers
     [Route("api/[controller]")]
     public class ProductsController : Controller
     {
-        private readonly IProductService _productService;
-        public ProductsController(IProductService productService)
+        private readonly IProductRepository _productService;
+        public ProductsController(IProductRepository productService)
         {
             _productService = productService;
         }
@@ -53,7 +53,9 @@ namespace WebAPI.Controllers
         }
 
         // POST api/<controller>
+
         [HttpPost]
+        [Authorize]
         public void Post([FromBody] Product product)
         {
             try

@@ -6,6 +6,7 @@ using System.Text;
 
 namespace Chillhop_Store.Models.Models
 {
+    [BsonIgnoreExtraElements]
     public class User
     {
         [BsonId]

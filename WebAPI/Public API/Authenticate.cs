@@ -21,16 +21,16 @@ namespace ChillhopStore.API.Public_API
         {
             var response = new AuthenticationResponse(authenticationRequest.CorrelationId());
 
-            var result = await _signInManager.PasswordSignInAsync(authenticationRequest.Username,authenticationRequest.Password, false,true);
+            var result = await _signInManager.PasswordSignInAsync(authenticationRequest.user.UserName,authenticationRequest.user.Password, false,true);
             response.Result = result.Succeeded;
             response.IsLockedOut = result.IsLockedOut;
             response.IsNotAllowed = result.IsNotAllowed;
             response.RequiresTwoFactor = result.RequiresTwoFactor;
-            response.Username = authenticationRequest.Username;
+            response.Username = authenticationRequest.user.UserName;
 
             if (result.Succeeded)
             {
-                response.Token = await _tokenClaimsService.GetTokenAsync(authenticationRequest.Username);
+                response.Token = await _tokenClaimsService.GetTokenAsync(authenticationRequest.user.UserName);
             }
             return response;
         }

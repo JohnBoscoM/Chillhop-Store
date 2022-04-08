@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>3a95f8dd-8404-48d9-bf82-2adf27b5f950</UserSecretsId>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,6 +31,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.10.2" />
     <PackageReference Include="SpotifyAPI.Web" Version="5.1.0" />
     <PackageReference Include="SpotifyAPI.Web.Auth" Version="5.1.0" />
@@ -37,5 +40,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Chillhop-Store.Models\ChillhopStore.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTO\" />
+    <Folder Include="Repository\" />
   </ItemGroup>
 </Project>
