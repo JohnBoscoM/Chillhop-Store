@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="AWSSDK.ECS" Version="3.7.5.13" />
-    <PackageReference Include="MongoDB.Driver" Version="2.10.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
   </ItemGroup>
 
 </Project>
